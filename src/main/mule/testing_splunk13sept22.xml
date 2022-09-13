@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="6bbdb592-e495-43cd-8f67-03cb90cc8078" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="testing_splunk13sept22Flow" doc:id="ff411c1f-5101-4af8-a32e-3d36d1d62426" >
+		<http:listener doc:name="Listener" doc:id="98571059-f674-4cba-9371-723175c1cd6d" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value="hello" doc:name="Set Payload" doc:id="8e80d3be-93db-485e-9f42-ee4f7f007a5d" />
+		<logger level="INFO" doc:name="Logger" doc:id="5985fe95-63be-4187-b90d-f3049e6dd04e" />
+	</flow>
+</mule>
